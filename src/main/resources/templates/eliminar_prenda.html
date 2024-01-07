@@ -1,0 +1,22 @@
+
+    <!DOCTYPE html>
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Eliminar Prenda</title>
+    </head>
+    <body>
+    <h2>Eliminar Prenda</h2>
+
+    <form action="/prendas/eliminar" method="post">
+        <label for="prendaId">Selecciona la prenda a eliminar:</label>
+        <select id="prendaId" name="id">
+            <option th:each="prenda : ${prendas}" th:value="${prenda.id}" th:text="${prenda.name}"></option>
+        </select>
+        <br>
+
+        <button type="submit">Eliminar Prenda</button>
+    </form>
+    </body>
+    </html>

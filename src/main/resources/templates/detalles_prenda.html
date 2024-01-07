@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de la prenda</title>
+</head>
+<body>
+<h1>Detalles de la prenda</h1>
+
+<div>
+    <strong>ID:</strong> <span th:text="${prenda.id}"></span>
+</div>
+<div>
+    <strong>Nombre:</strong> <span th:text="${prenda.name}"></span>
+</div>
+<div>
+    <strong>Precio:</strong> <span th:text="${prenda.price}"></span>
+</div>
+<div>
+    <strong>Cantidad en stock:</strong> <span th:text="${prenda.quantity}"></span>
+</div>
+
+<!-- Puedes agregar más detalles según las propiedades de tu entidad Prenda -->
+
+<a href="/prendas">Volver a la lista de prendas</a>
+</body>
+</html>
