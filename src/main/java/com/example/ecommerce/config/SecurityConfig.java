@@ -1,7 +1,9 @@
 package com.example.ecommerce.config;
 
 import com.example.ecommerce.Jwt.JwtAuthenticationFilter;
+import com.example.ecommerce.User.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -19,6 +21,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 public class SecurityConfig {
 
+    @Autowired
+    private UserService userService;
+
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final AuthenticationProvider authProvider;
 
@@ -31,7 +36,7 @@ public class SecurityConfig {
                                 .disable())
                 .authorizeHttpRequests(authRequest ->
                         authRequest
-                                .requestMatchers("/**").permitAll()
+                                .requestMatchers("/auth/login", "/auth/register").permitAll()
                                 //.requestMatchers("/auth/login", "/auth/register").permitAll() // Permitir acceso sin autenticación
                                 .anyRequest().authenticated()
                 )
