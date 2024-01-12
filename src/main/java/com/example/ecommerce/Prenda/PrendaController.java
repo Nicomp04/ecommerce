@@ -42,7 +42,7 @@ public class PrendaController {
         return "/prendas"; // Redirige a la lista de prendas después de agregar
     }
 
-    @PutMapping("/prendas/{id}")
+    @PutMapping("/{id}")
     public String actualizarPrenda(@PathVariable Long id, @ModelAttribute Prenda prendaActualizada) {
         // Implementa la lógica para actualizar la prenda en la base de datos
         prendaService.actualizarPrenda(id, prendaActualizada);
@@ -63,7 +63,7 @@ public class PrendaController {
         return "/prendas";
     }
 
-    @GetMapping("/prendas/{id}")
+    @GetMapping("/{id}")
     public ModelAndView detallesPrenda(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView("detalles_prenda");
         Prenda prenda = prendaService.obtenerPrendaPorId(id);
@@ -72,7 +72,7 @@ public class PrendaController {
     }
 
 
-    @GetMapping("/prendas/buscar")
+    @GetMapping("/buscar")
     public String buscarPrendas(@RequestParam String name, Model model) {
         List<Prenda> prendasEncontradas = prendaService.buscarPrendas(name);
         model.addAttribute("prendas", prendasEncontradas);

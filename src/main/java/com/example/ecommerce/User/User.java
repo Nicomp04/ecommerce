@@ -1,6 +1,7 @@
 package com.example.ecommerce.User;
 
 import jakarta.persistence.*;
+import jakarta.security.enterprise.credential.Password;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,7 +31,7 @@ public class User implements UserDetails {
     private String username;
     private String email;
     // posiblemente direccion y demas
-    private String password; // acordate de cifrar las contraseñas en un entorno de producción
+    private String password;
     //private List<Long> carrito;
     @Enumerated
     private Rol rol;
@@ -68,7 +69,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return email;
+        return username;
     }
 
     @Override
